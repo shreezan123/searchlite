@@ -9,6 +9,9 @@ import static spark.Spark.get;
 import static spark.Spark.options;
 import static spark.Spark.port;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 @Slf4j
 public class App {
 
@@ -44,6 +47,24 @@ public class App {
     // by default this is 4567 in order to prevent collisions with
     // other things that may be running on the machine.  We are running in a docker container
     // so that is not an issue
+
+    final Map<String, Map<String, String>> dummyData = new TreeMap<String, Map<String, String>>();
+    final Map<String, String> puppies = new TreeMap<String, String>();
+    final Map<String, String> chelseafc = new TreeMap<String, String>();
+  
+    
+    puppies.put("http://www.adoptapet.com/adopt-a-shelter-puppy", "Housebreaking: Before you adopt, consider how much time your new family member will spend alone. Remember...");
+    puppies.put("http://www.akc.org/puppies/", "Congratulations! You've made the important decision to bring a puppy into your heart as well as your home. Now...");
+    puppies.put("https://en.wikipedia.org/wiki/Puppy", "A puppy is a juvenile dog. Some puppies can weigh 1–3 lb (0.45–1.36 kg), while larger ones can weigh up to 15–23 lb (6.8–10.4 kg). All healthy puppies...");
+
+    chelseafc.put("https://twitter.com/search?q=chelsea+fc&ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Esearch", "Welcome to the official Twitter account of Premier League champions Chelsea Football Club...");
+    chelseafc.put("https://www.chelseafc.com/", "Home of the Champions...");
+    chelseafc.put("https://en.wikipedia.org/wiki/Chelsea_F.C.", "Chelsea Football Club (/ˈtʃɛlsiː/) is an English professional football club based in Fulham, London, that competes in the Premier League, of which they are reigning champions. Founded in 1905...");
+
+    dummyData.put("Puppies", puppies);
+    dummyData.put("Chelsea FC", chelseafc);
+
+  
     port(8080);
 
     enableCORS("http://frontend.howard.test:4200", "GET", "");
@@ -61,7 +82,8 @@ public class App {
     get(
       "/search",
       "application/json",
-      (req, res) -> ResultDTO.builder().term(req.queryMap("q").value()),
+      (req, res) -> ResultDTO.builder().term(dummyData.get(req.queryMap("q").value())),
+      //(req, res) -> ResultDTO.builder().term(req.queryMap("q").value()),
       gson::toJson); // <- this is called a method reference
   }
 }

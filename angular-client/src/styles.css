@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  height: 100%;
+}
+
+body{
+  background-color: black;
+  background-image: url("assets/Images/Background.png") ;
+  height: 100%;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+
+#login{
+  border-radius: 50%;
+  background-color: black;
+}
+
+#loginimage{
+  width: 80px;
+  height: 80px;
+}
+
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.8rem;
+  background-color: #262aa3;
+  text-align:center;
+  color: white;
+  word-spacing: 430pt;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+#tantrik{
+  width:50%;
+  height:50%;
+  position: relative;
+}

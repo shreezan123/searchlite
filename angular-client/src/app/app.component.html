@@ -1,10 +1,10 @@
 <form>
-<h1>
-  Search Lite
-</h1>
-<p>
-  You just searched for {{term}} and the result is {{result}}
-</p>
+<div id = "center-block">
+  <textarea rows="1" cols="40" placeholder="Enter your query..."></textarea>
+  <button id = "search-button" type="button">
+  <img id = "search-image" src="/../assets/Images/search.png" alt="Image not present"/>
+  </button>
+</div>
 
 <md-input-container>
   <input mdInput
@@ -14,7 +14,4 @@
          type="text"
          required>
 </md-input-container>
-<button md-raised-button (click)="search()">
-  Search
-</button>
 </form>
