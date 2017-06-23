@@ -1,5 +1,5 @@
 #center-block{
-  top:50%;
+  top:40%;
   left:35%;
   position: absolute;
   /*overflow: auto;*/
@@ -9,17 +9,47 @@ textarea{
   border-radius: 5px;
   font-size: 18px;
   height:39px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#search-button{
-  border-radius: 2px;
-  width:50px;
-  height: 50px;
+
+#searchB{
   position:float;
+  width:85px;
+  height: 43px;
+  float:right;
+  margin-right: 288px;
+  background-color: #262aa3;
+  border: 1px solid #262aa3;
 }
+
 #search-image{
   width: 35px;
   height: 42px;
   position:relative;
+}
+
+#logo{
+  display: block;
+  margin: auto;
+  width: 45%;
+  height: 275px;
+  
+}
+
+input{
+  position: center;
+}
+
+#search_area{
+  width: 87%;
+  margin-left: 400px;
+  border: 2px solid #262aa3;
+  color: white;
+  font-size: 25px;
+}
+
+#search_container{
+  margin-left: auto;
+  margin-right: auto;
 }

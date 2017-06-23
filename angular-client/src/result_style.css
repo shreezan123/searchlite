@@ -1,0 +1,95 @@
+html{
+  height: 100%;
+}
+
+body{
+  background-color: black;
+  background-image: url("assets/Images/hand.png") ;
+  height: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+#login{
+  border-radius: 50%;
+  background-color: black;
+}
+
+#loginimage{
+  width: 80px;
+  height: 80px;
+}
+#center-block{
+  top:16%;
+  left:35%;
+  position: fixed;
+  /*overflow: auto;*/
+}
+textarea{
+  position: relative;
+  border-radius: 5px;
+  font-size: 18px;
+  height:39px;
+  font-family: cursive;
+}
+
+#search-button{
+  border-radius: 2px;
+  width:50px;
+  height: 50px;
+  position:float;
+}
+#search-image{
+  width: 35px;
+  height: 42px;
+  position:relative;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.8rem;
+  background-color: #262aa3;
+  text-align:center;
+  color: white;
+  word-spacing: 430pt;
+}
+
+#header {
+  position: absolute;
+  top:2%;
+  left:35%;
+  right:0%;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+a:hover{
+  color: #7FFD0F;
+}
+
+p{
+  color:white;
+}
+
+#tantrik{
+  width:50%;
+  height:50%;
+  position: relative;
+}
+
+#results{
+  position: relative;
+  width: 50%;
+  margin-left: 500px;
+  margin-top: 125px;
+}
+
+.description{
+  font-size: 18px;
+}

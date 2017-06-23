@@ -1,17 +1,23 @@
 <form>
-<div id = "center-block">
-  <textarea rows="1" cols="40" placeholder="Enter your query..."></textarea>
-  <button id = "search-button" type="button">
-  <img id = "search-image" src="/../assets/Images/search.png" alt="Image not present"/>
-  </button>
-</div>
+<img src="assets/Images/Logo4.gif" alt="TanTrik Logo" id="logo"/>
 
 <md-input-container>
+      <textarea id="search_area" mdInput></textarea>
+</md-input-container>
+<button md-raised-button routerLink="/results.component.html" routerLinkActive="active" id="searchB" (onclick)="search()">
+  <img src="assets/Images/search_icon.png" alt="Search Icon" id="search-image"/>
+</button>
+<router-outlet></router-outlet>
+
+
+<!--<md-input-container>
   <input mdInput
          [(ngModel)]="term"
          name="term"
          placeholder="term"
          type="text"
          required>
-</md-input-container>
+</md-input-container>-->
+
+
 </form>

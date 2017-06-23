@@ -1,11 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 html{
   height: 100%;
+
 }
 
 body{
-  background-color: black;
-  background-image: url("assets/Images/Background.png") ;
+  /*background-image: url("assets/Images/material_bg.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+  background-color: #02A8F3;
   height: 100%;
   background-position:center;
   background-repeat: no-repeat;
@@ -13,12 +18,14 @@ body{
 
 #login{
   border-radius: 50%;
-  background-color: black;
+  border-color: white;
+  background-color: #02A8F3;
 }
 
 #loginimage{
   width: 80px;
   height: 80px;
+  
 }
 
 
@@ -32,6 +39,7 @@ body{
   text-align:center;
   color: white;
   word-spacing: 430pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a{
