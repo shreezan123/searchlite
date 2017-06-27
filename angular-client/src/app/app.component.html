@@ -1,20 +1,21 @@
-<form>
-<h1>
-  Search Lite
-</h1>
-<p>
-  You just searched for {{term}} and the result is {{result}}
-</p>
-
-<md-input-container>
-  <input mdInput
-         [(ngModel)]="term"
-         name="term"
-         placeholder="term"
-         type="text"
-         required>
-</md-input-container>
-<button md-raised-button (click)="search()">
-  Search
-</button>
-</form>
+<div fxLayout="column" fxLayoutAlign="space-around none">
+  <div>
+    <button id = "login" type="button">
+      <img src = "assets/Images/account_temp.png" alt="Temp Account Pic"id="loginimage"/>
+    </button>
+  </div>
+  <div><router-outlet></router-outlet></div>
+  <div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="footer">
+      <div>
+        <a href = "https://github.com/shreezan123/search_algorithm">APIs</a> 
+      </div>
+      <div>
+        <a href = "https://github.com/shreezan123/search_algorithm">GithubLink</a> 
+      </div>
+      <div>
+        <a href = "https://github.com/shreezan123/search_algorithm">OurTeam</a>
+      </div>
+    </div>
+  </div>
+</div>  

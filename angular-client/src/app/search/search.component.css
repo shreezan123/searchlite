@@ -1,0 +1,14 @@
+textarea{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#searchB{
+  background-color: #262aa3;
+  border: 1px solid #262aa3;
+}
+
+input {
+  border: 2px solid #262aa3;
+  color: white;
+  font-size: 25px;
+}

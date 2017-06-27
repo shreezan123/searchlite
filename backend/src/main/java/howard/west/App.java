@@ -51,7 +51,9 @@ public class App {
     //GSON is used to map to json.
     Gson gson = new Gson();
 
+    ResultDTO dummy1 = new ResultDTO.term("Chelsea FC").url("https://www.chelseafc.com/").description();
 
+asdasda
 
     //the route callback is a lambda function
     get("/", (req, res) -> {
