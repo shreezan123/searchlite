@@ -3,8 +3,7 @@ html{
 }
 
 body{
-  background-color: black;
-  background-image: url("assets/Images/hand.png") ;
+  background-color: #02A8F3;
   height: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -12,7 +11,8 @@ body{
 
 #login{
   border-radius: 50%;
-  background-color: black;
+  border-color: white;
+  background-color: #02A8F3;
 }
 
 #loginimage{
@@ -20,9 +20,8 @@ body{
   height: 80px;
 }
 #center-block{
-  top:16%;
-  left:35%;
-  position: fixed;
+  display: inline-block;
+
   /*overflow: auto;*/
 }
 textarea{
@@ -30,14 +29,31 @@ textarea{
   border-radius: 5px;
   font-size: 18px;
   height:39px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+#search_area{
+  top:13%;
+  right:0%;
+  left:0%;
+  position: absolute;
+  width: 37%;
+  margin-left: 450px;
+  border: 2px solid #262aa3;
+  color: white;
+  background-color: #02A8F3;
+  font-size: 25px;
+}
 #search-button{
-  border-radius: 2px;
-  width:50px;
-  height: 50px;
-  position:float;
+  top:13%;
+  right:3%;
+  position: absolute;
+  /*position:float;*/
+  width:85px;
+  height: 43px;
+  /*float:right;*/
+  margin-right: 288px;
+  background-color: #262aa3;
+  border: 1px solid #262aa3;
 }
 #search-image{
   width: 35px;
@@ -59,8 +75,8 @@ textarea{
 
 #header {
   position: absolute;
-  top:2%;
-  left:35%;
+  bottom:75%;
+  left:0%;
   right:0%;
 }
 
@@ -78,9 +94,10 @@ p{
 }
 
 #tantrik{
-  width:50%;
-  height:50%;
-  position: relative;
+  display: block;
+  margin: auto;
+  width: 45%;
+  height: 275px;
 }
 
 #results{
