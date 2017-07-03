@@ -1,0 +1,15 @@
+input {
+  color: white;
+}
+
+input::placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+
+.login_button{
+    width: 75px;
+    height: 25px;
+    background-color: #262aa3;
+    border-color: #262aa3;
+    color:white;
+}

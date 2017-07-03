@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SearchService } from '../search.service';
+import { ResultsService } from '../results.service';
 
 @Component({
   selector: 'app-search',
@@ -8,14 +10,15 @@ import { SearchService } from '../search.service';
 })
 export class SearchComponent {
   term: string;
-  result: string;
+  result: any;
 
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService, private resultService: ResultsService) {}
 
   search() {
     this.searchService.search(this.term)
       .subscribe(data => {
-        this.result = JSON.stringify(data);
+        this.resultService.setResult(data);
+        console.log("FIRST: " + JSON.stringify(data[0]));
       });
   }
 }

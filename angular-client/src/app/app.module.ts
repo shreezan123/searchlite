@@ -2,20 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdIconModule, MdCardModule, MdListModule, MdChipsModule, MdTabsModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchService } from './search.service';
 import { RouterModule, Routes } from '@angular/router';
-import { MdListModule } from '@angular/material';
 import { AppComponent } from './app.component';
-import { ResultsComponent } from './results.component';
-import { MdChipsModule } from '@angular/material';
+import { ResultsComponent } from './results/results.component';
 import { SearchComponent } from './search/search.component';
-import {FlexLayoutModule} from "@angular/flex-layout"; 
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { LoginComponent } from './login/login.component';
+import { SearchResultsComponent } from './search-results/search-results.component'; 
+import { ResultsService } from './results.service';
 
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'results', component: ResultsComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: ''},
 ];
 
@@ -23,7 +25,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ResultsComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent,
+    SearchResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +40,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FlexLayoutModule,
     MdIconModule,
+    MdTabsModule,
   ],
-  providers: [SearchService],
+  providers: [SearchService, ResultsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

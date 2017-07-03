@@ -7,6 +7,10 @@ textarea{
   border: 1px solid #262aa3;
 }
 
+#logo{
+  width: 70%;
+}
+
 input {
   border: 2px solid #262aa3;
   color: white;

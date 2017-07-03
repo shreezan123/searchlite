@@ -1,6 +1,6 @@
-<form>
+<div>
   <div fxLayout="column" fxLayoutAlign="center center">
-    <div>
+    <div fxLayout="column" fxLayoutAlign="center center">
       <img src="assets/Images/Logo4.gif" alt="TanTrik Logo" id="logo"/>
     </div>
     <div>
@@ -16,11 +16,11 @@
           </md-input-container>
         </div>
         <div fxFlexOffset="20px">
-          <button md-mini-fab id="searchB" routerLink="/results.component.html" routerLinkActive="active" (click)="search()">
+          <button type="submit" id="searchB" (click)="search()" routerLink="/results" routerLinkActive="active">
             <md-icon>search</md-icon>
           </button>
         </div>
       </div>
     </div>
   </div>
-</form>
+</div>

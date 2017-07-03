@@ -1,0 +1,33 @@
+#searchB{
+  background-color: #262aa3;
+  border: 1px solid #262aa3;
+
+}
+
+#logo{
+  width: 90%;
+  height: 50%;
+}
+
+#logo_div{
+    width: 46%;
+    height: 30%;
+}
+
+input {
+  border: 2px solid #262aa3;
+  color: white;
+  font-size: 25px;
+}
+
+md-card{
+  width: 100%;
+  background-color: #ffffff;
+  color: #262aa3;
+}
+
+
+
+
+
+

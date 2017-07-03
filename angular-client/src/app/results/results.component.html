@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="center center" id="top_half">
+  <form> 
+    <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div>
+            <md-input-container>
+              <input mdInput
+                  [(ngModel)]="term"
+                  name="term"
+                  type="text"
+                  id="search_area" 
+                  required>
+            </md-input-container>
+          </div>
+          <div fxFlexOffset="20px">
+            <button md-mini-fab id="searchB" routerLink="/results" routerLinkActive="active" (click)="search()">
+              <md-icon>search</md-icon>
+            </button>
+          </div>
+        </div>
+    </div>
+  </form>
+</div>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <md-card *ngFor="let i of result">
+    <md-card-header> 
+      <md-card-title class="results"> {{i}} </md-card-title>
+    </md-card-header>
+  </md-card>
+</div>
