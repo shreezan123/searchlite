@@ -18,7 +18,6 @@ export class SearchComponent {
     this.searchService.search(this.term)
       .subscribe(data => {
         this.resultService.setResult(data);
-        console.log("FIRST: " + JSON.stringify(data[0]));
       });
   }
 }

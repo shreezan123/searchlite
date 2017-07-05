@@ -14,7 +14,6 @@ export class ResultsService {
 
   setResult(r: any){
     this.result = r;
-    console.log("SECOND: " + JSON.stringify(this.result[0]));
   }
 
 }

@@ -24,7 +24,7 @@ export class ResultsComponent {
 
 
   search() {
-    this.searchService.search(this.term)
+    this.searchService.search(this.term.toLowerCase())
       .subscribe(data => {
         var result_element = document.getElementsByClassName("results");
         for(var i = 0; i < 10; i++){
@@ -36,6 +36,7 @@ export class ResultsComponent {
             }
           }
           this.result.push(JSON.stringify(data[i]));
+          this.resultsService.setResult(data);
         }
       });
   }

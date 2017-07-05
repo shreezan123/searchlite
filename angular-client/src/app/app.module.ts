@@ -1,8 +1,11 @@
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MdButtonModule, MdInputModule, MdIconModule, MdCardModule, MdListModule, MdChipsModule, MdTabsModule } from '@angular/material';
+import { MdButtonModule, MdInputModule, MdIconModule, MdCardModule, 
+         MdListModule, MdChipsModule, MdTabsModule, MdSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchService } from './search.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,15 +14,21 @@ import { ResultsComponent } from './results/results.component';
 import { SearchComponent } from './search/search.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LoginComponent } from './login/login.component';
-import { SearchResultsComponent } from './search-results/search-results.component'; 
 import { ResultsService } from './results.service';
+import { environment } from '../environments/environment';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginAuthService } from './login-auth.service';
+
+
 
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'results', component: ResultsComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'sign_up', component: SignUpComponent},
   {path: '**', redirectTo: ''},
 ];
+
 
 @NgModule({
   declarations: [
@@ -27,11 +36,13 @@ const appRoutes: Routes = [
     ResultsComponent,
     SearchComponent,
     LoginComponent,
-    SearchResultsComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase, "tantrik-search"),
+    AngularFireAuthModule,
     FormsModule,
     MdInputModule,
     HttpModule,
@@ -41,8 +52,9 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     MdIconModule,
     MdTabsModule,
+    MdSidenavModule,
   ],
-  providers: [SearchService, ResultsService],
+  providers: [SearchService, ResultsService, LoginAuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

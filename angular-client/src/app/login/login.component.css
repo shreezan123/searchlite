@@ -13,3 +13,7 @@ input::placeholder { /* Chrome/Opera/Safari */
     border-color: #262aa3;
     color:white;
 }
+
+button{
+  font-size: 15px;
+}

@@ -1,22 +1,39 @@
-<div id="fb-root"></div>
-<div fxLayout="column" fxLayoutAlign="center center">
+<!--<div id="fb-root"></div>
+<div fxLayout="column" fxLayoutAlign="space-between center">
   <form class="login-form">
     <div fxLayout="column" fxLayoutAlign="center center" id="form-input">
       <md-input-container class="example-full-width">
-        <input mdInput placeholder="User Name">
+        <input mdInput placeholder="User Name" id="username">
       </md-input-container>
       <md-input-container class="example-full-width">
-        <input mdInput placeholder="Password">
+        <input mdInput placeholder="Password" id="password">
       </md-input-container>
     </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <button class="login_button" (click)="login()"> Login </button>
+    </div><br />
   </form>
   <div fxLayout="column" fxLayoutAlign="space-between center">
-    <div fxLayout="row" fxLayoutAlign="space-around center">
-      <button md-raised-button class="login_button">Login</button>
-      <button md-raised-button class="login_button" routerLink="/results" routerLinkActive="active">Sign Up</button>
-    </div><br />
+    <button md-raised-button class="login_button" routerLink="/sign_up" routerLinkActive="active">Sign Up</button>
+  </div><br />
+  <div fxLayout="column" fxLayoutAlign="space-between center">
     <div class="g-signin2" data-onsuccess="onSignIn" routerLink="/" routerLinkActive="active"></div><br />
     <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" 
     data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
  </div>
+</div>-->
+<div fxLayout="column" fxLayoutAlign="space-between center">
+  <button md-raised-button (click)="login('google')">
+    <div fxLayout="row" fxLayoutAlign="end start">
+      <img width="30" src="../assets/Images/google-logo.png" />
+      
+       Login With Google
+    
+    </div> 
+  </button>
+
+  <button md-raised-button (click)="login('facebook')">
+    <img width="30" src="../assets/Images/facebook-logo.png" />Login With Facebook
+  </button>
 </div>
+
