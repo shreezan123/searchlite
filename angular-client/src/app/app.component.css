@@ -12,3 +12,20 @@
 #loginimage{
     border-radius: 50%;
 }
+
+#cancelB{
+    background-color: #ffffff;
+    border: none;
+    width: 50px;
+    height:20px;
+}
+
+#facebookB{
+    background-color: #ffffff;
+    border: none;
+}
+
+#googleB{
+    background-color: #ffffff;
+    border: none;
+}

@@ -5,16 +5,16 @@
         <img src = "assets/Images/account_temp.png" alt="Temp Account Pic" id="loginimage"/>
       </button>
     </div>
-    <md-sidenav #sidenav mode="slide" id="login-nav">
+    <md-sidenav #sidenav mode="push" id="login-nav">
         <div fxLayout="column" fxLayoutAlign="center center">
           <div>Login With:</div>
-          <br /><button md-fab type="button" (click)="glogin(); sidenav.close()">
+          <br /><button md-fab id="googleB" type="button" (click)="glogin(); sidenav.close()">
             <img width="30" src="../assets/Images/google-logo.png" />
           </button>
-          <br /><button md-fab (click)="flogin(); sidenav.close()">
+          <br /><button md-fab id="facebookB" (click)="flogin(); sidenav.close()">
             <img width="30" src="../assets/Images/facebook-logo.png" />
           </button><br />
-          <button md-fab (click)="sidenav.close()">
+          <button md-fab id="cancelB" (click)="sidenav.close()">
             cancel
           </button>
         </div>

@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { ResultsService } from './results.service';
 import { environment } from '../environments/environment';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { LoginAuthService } from './login-auth.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -56,7 +55,7 @@ const appRoutes: Routes = [
     MdSidenavModule,
     NgxPaginationModule,
   ],
-  providers: [SearchService, ResultsService, LoginAuthService],
+  providers: [SearchService, ResultsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

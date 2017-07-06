@@ -34,8 +34,7 @@ export class ResultsComponent {
         this.result = this.result.map(s=>{return s.split('/')[1];});
         var a_tags = document.getElementsByTagName('a');
         for (var i = 0; i < a_tags.length; i++) {
-          a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/p1-data/" + this.links[this.counter];
-          //a_tags[i].onclick = function(){window.location.href = a_tags[i].href};
+          a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/" + this.links[this.counter];
           this.counter++;
         }
       });
@@ -46,7 +45,6 @@ export class ResultsComponent {
     var a_tags = document.getElementsByTagName('a');
     for (var i = 0; i < a_tags.length; i++) {
       a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/p1-data/" + this.links[this.counter];
-     // a_tags[i].onclick = function(){window.location.href = a_tags[i].href};
       this.counter++;
     }
   }

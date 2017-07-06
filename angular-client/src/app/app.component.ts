@@ -16,15 +16,16 @@ export class AppComponent {
 
   constructor(public afAuth: AngularFireAuth) { this.user = afAuth.authState; }
 
+
   glogin() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    if(this.afAuth.auth.currentUser.photoURL != null)
+    if(this.afAuth.auth.currentUser.photoURL != undefined)
       (<HTMLImageElement>document.getElementById('loginimage')).src = this.afAuth.auth.currentUser.photoURL;
   }
 
   flogin() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
-    if(this.afAuth.auth.currentUser.photoURL != null)
+    if(this.afAuth.auth.currentUser.photoURL != undefined)
       (<HTMLImageElement>document.getElementById('loginimage')).src = this.afAuth.auth.currentUser.photoURL;
     
   }
