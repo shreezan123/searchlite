@@ -12,6 +12,4 @@ import lombok.Data;
 public class ResultDTO
 {
   private String term;
-  private String url;
-  private String description;
 }
