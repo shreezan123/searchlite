@@ -12,12 +12,13 @@ export class SearchComponent {
   term: string;
   result: any;
 
-  constructor(private searchService: SearchService, private resultService: ResultsService) {}
+  constructor(private searchService: SearchService, private resultService: ResultsService, private route: Router) {}
 
   search() {
     this.searchService.search(this.term)
       .subscribe(data => {
-        this.resultService.setResult(data);
+        this.resultService.setResult(this.term); //Passes the term to service -> result component
+        this.route.navigate(["../results"]);
       });
   }
 }
