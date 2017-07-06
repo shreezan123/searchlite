@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ResultsService } from '../results.service';
 
@@ -10,34 +10,44 @@ import { ResultsService } from '../results.service';
 export class ResultsComponent {
 
   term: string;
-  temp: any;
-  result: string[] = [];
+  result: any;
+  p: number = 1;
+  links: string[] = [];
+  counter: number;
 
   constructor(private searchService: SearchService, private resultsService: ResultsService) {
-    this.temp = this.resultsService.getResult();
-    for(var i = 0; i < 10; i++){
-      if(this.temp == null)
-        break;
-      this.result.push(JSON.stringify(this.temp[i]));
-    }
+    this.term = this.resultsService.getResult();
+    this.search();
   }
 
 
   search() {
+    if(this.term == undefined)
+      return;
     this.searchService.search(this.term.toLowerCase())
       .subscribe(data => {
-        var result_element = document.getElementsByClassName("results");
-        for(var i = 0; i < 10; i++){
-          if(data == null)
-            break;
-          else if(result_element != null){
-            for(var j = 0; j < result_element.length; j++){
-              result_element[j].innerHTML = " ";
-            }
-          }
-          this.result.push(JSON.stringify(data[i]));
-          this.resultsService.setResult(data);
+        this.counter = 0;
+        this.result = JSON.stringify(data).substr(1, JSON.stringify(data).length-2).replace(/\"/g, " ").split(',');
+        for(var i = 0; i < this.result.length; i++){
+          this.links.push((this.result[i]).replace(" ", ""));
+        }
+        this.result = this.result.map(s=>{return s.split('/')[1];});
+        var a_tags = document.getElementsByTagName('a');
+        for (var i = 0; i < a_tags.length; i++) {
+          a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/p1-data/" + this.links[this.counter];
+          //a_tags[i].onclick = function(){window.location.href = a_tags[i].href};
+          this.counter++;
         }
       });
+      
+  }
+
+  getCount(){
+    var a_tags = document.getElementsByTagName('a');
+    for (var i = 0; i < a_tags.length; i++) {
+      a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/p1-data/" + this.links[this.counter];
+     // a_tags[i].onclick = function(){window.location.href = a_tags[i].href};
+      this.counter++;
+    }
   }
 }
