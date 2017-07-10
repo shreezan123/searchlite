@@ -17,20 +17,24 @@
               <md-icon>search</md-icon>
             </button>
           </div>
+          <!--<div id="resultLogo">
+            <img src="../assets/Images/LogoResults2.gif">
+          </div>-->
         </div>
     </div>
   </form>
 </div>
 <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
-  <div *ngFor="let item of result | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' }" id="cards">
+  <div *ngFor="let item of result | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
     <md-card>
       <md-card-header> 
         <md-card-title><a href="">{{item}}</a></md-card-title>
       </md-card-header>
       <md-card-content>
-        <p> Description Goes Here... </p>
+        <p>Description</p>
       </md-card-content>
     </md-card>
   </div>
-  <pagination-controls (pageChange)="p = $event; getCount()" id="title" autoHide="true" maxSize="5" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+  
+  <pagination-controls (pageChange)="p = $event" id="title" autoHide="true" maxSize="5" previousLabel="Previous" nextLabel="Next"></pagination-controls>
 </div>

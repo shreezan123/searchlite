@@ -15,9 +15,9 @@ export class SearchComponent {
   constructor(private searchService: SearchService, private resultService: ResultsService, private route: Router) {}
 
   search() {
-    this.searchService.search(this.term)
+    this.searchService.search(this.term.toLowerCase())
       .subscribe(data => {
-        this.resultService.setResult(this.term); //Passes the term to service -> result component
+        this.resultService.setResult(data); //Passes the term to service -> result component
         this.route.navigate(["../results"]);
       });
   }

@@ -1,5 +1,6 @@
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -7,25 +8,28 @@ import { FormsModule } from '@angular/forms';
 import { MdButtonModule, MdInputModule, MdIconModule, MdCardModule, 
          MdListModule, MdChipsModule, MdTabsModule, MdSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchService } from './search.service';
 import { RouterModule, Routes } from '@angular/router';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { ResultsComponent } from './results/results.component';
 import { SearchComponent } from './search/search.component';
-import {FlexLayoutModule} from "@angular/flex-layout";
-import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileDataService } from './profile-data.service';
+import { SearchService } from './search.service';
 import { ResultsService } from './results.service';
 import { environment } from '../environments/environment';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 
 
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'results', component: ResultsComponent},
-  {path: 'login', component: LoginComponent},
   {path: 'sign_up', component: SignUpComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '**', redirectTo: ''},
 ];
 
@@ -35,8 +39,8 @@ const appRoutes: Routes = [
     AppComponent,
     ResultsComponent,
     SearchComponent,
-    LoginComponent,
     SignUpComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +58,9 @@ const appRoutes: Routes = [
     MdTabsModule,
     MdSidenavModule,
     NgxPaginationModule,
+    AngularFireDatabaseModule,
   ],
-  providers: [SearchService, ResultsService],
+  providers: [SearchService, ResultsService, ProfileDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

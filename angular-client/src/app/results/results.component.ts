@@ -10,42 +10,42 @@ import { ResultsService } from '../results.service';
 export class ResultsComponent {
 
   term: string;
-  result: any;
+  result: string[] = [];
   p: number = 1;
-  links: string[] = [];
-  counter: number;
+  description: string[] = [];
+  
 
   constructor(private searchService: SearchService, private resultsService: ResultsService) {
-    this.term = this.resultsService.getResult();
-    this.search();
+    this.result = this.resultsService.getResult();
+    this.firstSearch();
   }
 
-
   search() {
-    if(this.term == undefined)
-      return;
     this.searchService.search(this.term.toLowerCase())
       .subscribe(data => {
-        this.counter = 0;
-        this.result = JSON.stringify(data).substr(1, JSON.stringify(data).length-2).replace(/\"/g, " ").split(',');
-        for(var i = 0; i < this.result.length; i++){
-          this.links.push((this.result[i]).replace(" ", ""));
+        if(data == null || data == undefined){
+          this.result.push("NO RESULTS FOUND");
         }
+        this.result = JSON.stringify(data).substr(1, JSON.stringify(data).length-2).replace(/\"/g, " ").replace(/]/g, "").split(',');
         this.result = this.result.map(s=>{return s.split('/')[1];});
-        var a_tags = document.getElementsByTagName('a');
-        for (var i = 0; i < a_tags.length; i++) {
-          a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/" + this.links[this.counter];
-          this.counter++;
+        this.result = this.result.map(s=>{return s.replace(/_/g, "/")});
+        for(var i = this.result.length/2; i < this.result.length; i++){
+          this.description.push(this.result[i]);
         }
+        console.log(this.description);
       });
       
   }
 
-  getCount(){
-    var a_tags = document.getElementsByTagName('a');
-    for (var i = 0; i < a_tags.length; i++) {
-      a_tags[i].href = "file:///Users/jogato/Desktop/searchlite/backend/data/p1-data/" + this.links[this.counter];
-      this.counter++;
+  firstSearch(){
+    if(this.result == undefined){
+      this.result = [];
+      this.result.push("NO RESULTS FOUND")
+      
     }
+    this.result = JSON.stringify(this.result).substr(1, JSON.stringify(this.result).length-2).replace(/\"/g, " ").split(',');
+    this.result = this.result.map(s=>{return s.split('/')[1];});
+
   }
+
 }

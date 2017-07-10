@@ -1,19 +1,6 @@
-#searchB{
-  background-color: #262aa3;
-  border: 1px solid #262aa3;
-
-}
-
-#resultLogo{
-  width: 50%;
-  height: 50%;
-  padding: -50px;
-}
-
-input {
-  border: 2px solid #262aa3;
-  color: white;
-  font-size: 25px;
+h2, h4{
+    color: #ffffff;
+    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
 }
 
 #cards{
@@ -29,13 +16,3 @@ input {
          -4px 4px #262aa3,
          -5px 5px #262aa3;
 }
-
-a{
-  color: #262aa3;
-}
-
-
-
-
-
-
