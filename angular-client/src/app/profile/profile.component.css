@@ -1,0 +1,18 @@
+h2, h4{
+    color: #ffffff;
+    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
+}
+
+#cards{
+  width: 100%;
+  background-color: #ffffff;
+  color: #262aa3;
+  font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px;
+  border: 1px solid #262aa3;
+  box-shadow:  -1px 1px #262aa3,
+         -2px 2px #262aa3,
+         -3px 3px #262aa3,
+         -4px 4px #262aa3,
+         -5px 5px #262aa3;
+}

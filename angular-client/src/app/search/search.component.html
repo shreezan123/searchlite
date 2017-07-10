@@ -1,0 +1,26 @@
+<form>
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img src="assets/Images/Logo4.gif" alt="TanTrik Logo" id="logo"/>
+    </div>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div>
+          <md-input-container>
+            <input mdInput
+                [(ngModel)]="term"
+                name="term"
+                type="text"
+                id="search_area"
+                required>
+          </md-input-container>
+        </div>
+        <div fxFlexOffset="20px">
+          <button md-mini-fab id="searchB" (click)="search()">
+            <md-icon>search</md-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

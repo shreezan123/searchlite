@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+      apiKey: "AIzaSyDJbL9GVaQPkDEJ01Wg1WDKuCKbt8B39Y8",
+      authDomain: "tantrik-search.firebaseapp.com",
+      databaseURL: "https://tantrik-search.firebaseio.com",
+      projectId: "tantrik-search",
+      storageBucket: "tantrik-search.appspot.com",
+      messagingSenderId: "514163490542"
+    }
 };
