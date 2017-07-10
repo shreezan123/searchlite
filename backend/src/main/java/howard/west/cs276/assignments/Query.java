@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import howard.west.cs276.assignments.Description;
 
 import javax.net.ssl.ExtendedSSLSession;
 
@@ -26,7 +27,7 @@ public class Query {
 	private static Map<String, Integer> termDict = new TreeMap<String, Integer>();
 	// Index
 	private static BaseIndex index = null;
-
+	private static Description d = new Description();
 	
 	/* 
 	 * Write a posting list with a given termID from the file 
@@ -65,7 +66,7 @@ public class Query {
 	}
 
 
-	public static List<String> mainQuery(String input, String query) {
+	public static List<List<String>> mainQuery(String input, String query) {
 
 	    try {
 
@@ -141,13 +142,20 @@ public class Query {
 			 }
 
 			 List<String>fileNames = new ArrayList<String>();
+			 List<String>descriptions = new ArrayList<String>();
+			 List<List<String>>x = new ArrayList<List<String>>();
 
 			 for(int i = 0; i < common.size(); i++){
 				 fileNames.add(docDict.get(common.get(i)));
+				 String description = d.getDescription(docDict.get(common.get(i)), query);
+				 descriptions.add(description);
 			 }
 			 
 		indexFile.close();
-		return fileNames;
+		x.add(fileNames);
+		x.add(descriptions);
+		return x;
+		//return fileNames;
 		//return postingLists;
 
 		} catch (Exception e) { System.out.println("ERROR " + e); }
