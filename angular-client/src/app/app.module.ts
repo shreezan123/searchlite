@@ -18,13 +18,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDataService } from './profile-data.service';
 import { SearchService } from './search.service';
-<<<<<<< HEAD
 import { ResultsService } from './results.service';
 import { environment } from '../environments/environment';
-
-
-
-
 
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
@@ -34,29 +29,14 @@ const appRoutes: Routes = [
   {path: '**', redirectTo: ''},
 ];
 
-=======
-import { RouterModule, Routes } from '@angular/router';
-import { MdListModule } from '@angular/material';
-import { AppComponent } from './app.component';
-import { ResultsComponent } from './results.component';
-import { MdChipsModule } from '@angular/material';
-
-const appRoutes: Routes = [
-  {path: 'results.component.html', component: ResultsComponent}
-];
->>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     ResultsComponent,
     SearchComponent,
     SignUpComponent,
     ProfileComponent,
-=======
-    ResultsComponent
->>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
   ],
   imports: [
     BrowserModule,
@@ -68,7 +48,6 @@ const appRoutes: Routes = [
     HttpModule,
     MdListModule,
     MdChipsModule,
-<<<<<<< HEAD
     RouterModule.forRoot(appRoutes),
     FlexLayoutModule,
     MdIconModule,
@@ -78,11 +57,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
   ],
   providers: [SearchService, ResultsService, ProfileDataService],
-=======
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [SearchService],
->>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
