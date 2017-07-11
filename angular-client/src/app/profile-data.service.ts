@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ProfileDataService {
 
-  user: Observable<any>;
+  user: any;
 
   constructor() {}
 
@@ -14,6 +14,12 @@ export class ProfileDataService {
 
   getUser(){
     return this.user;
+  }
+
+  getUID(){
+    if(this.user != null)
+      return this.user.uid;
+    return null;
   }
 
 }

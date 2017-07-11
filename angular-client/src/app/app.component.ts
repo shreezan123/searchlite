@@ -5,6 +5,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { MdSidenav } from '@angular/material';
 import { ProfileDataService } from './profile-data.service';
+import { AngularFireDatabase, FirebaseListObservable,  } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
 
 
 @Component({
@@ -17,18 +19,19 @@ export class AppComponent {
 
   user: Observable<firebase.User>;
   user_image = HTMLImageElement;
-  public loggedIn: boolean;
+  user_history: any;
+  history_db: FirebaseListObservable<any>;
   @ViewChild('sidenav') sidenav: MdSidenav;
 
-  constructor(public afAuth: AngularFireAuth, private route: Router, private profileData: ProfileDataService) { 
+  constructor(public afAuth: AngularFireAuth, private route: Router, private profileData: ProfileDataService,db: AngularFireDatabase) {
+    this.history_db = db.list('/users');
     afAuth.auth.onAuthStateChanged(function(user) { //Check if the user is already logged in
       if(user){
-        this.loggedIn = true;
         (<HTMLImageElement>document.getElementById('loginimage')).src = afAuth.auth.currentUser.photoURL;
         profileData.setUser(afAuth.auth.currentUser);
+        
       }
       else{
-        this.loggedIn = false;
         (<HTMLImageElement>document.getElementById('loginimage')).src = "assets/Images/account_temp.png";
         profileData.setUser(null);
       }
@@ -37,18 +40,19 @@ export class AppComponent {
 
 
   glogin() {
-    this.loggedIn = true;
     this.user = this.afAuth.authState;
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     if(this.afAuth.auth.currentUser != null){
       (<HTMLImageElement>document.getElementById('loginimage')).src = this.afAuth.auth.currentUser.photoURL;
       this.profileData.setUser(this.afAuth.auth.currentUser);
     }
+    else{
+      this.profileData.setUser(null);
+    }
     this.sidenav.close();
   }
 
   flogin() {
-    this.loggedIn = true;
     this.user = this.afAuth.authState;
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     if(this.afAuth.auth.currentUser != null){
@@ -62,7 +66,7 @@ export class AppComponent {
   profile(){
     if(this.afAuth.auth.currentUser != null){
       this.sidenav.close();
-      this.profileData.setUser(this.afAuth.auth.currentUser);
+      //this.profileData.setUser(this.afAuth.auth.currentUser);
       this.route.navigate(["../profile"]);
     }
     else{
@@ -73,7 +77,6 @@ export class AppComponent {
 
   logout(){
     this.afAuth.auth.signOut().then(function() {
-      this.loggedIn = false;
       this.profileData.setUser(null);
       (<HTMLImageElement>document.getElementById('loginimage')).src = "assets/Images/account_temp.png";
     }).catch(function(error) {

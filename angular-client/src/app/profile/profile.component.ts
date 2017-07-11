@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ProfileDataService } from '../profile-data.service';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+ import * as firebase from 'firebase';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,17 +14,17 @@ export class ProfileComponent {
   user_name: string;
   user_email: string;
 
-  constructor(private profileData: ProfileDataService) {
-    this.user = profileData.getUser();
-    console.log(this.user);
-    if(this.user != undefined || this.user != null){
-      this.user_name = this.user.displayName;
-      this.user_email = this.user.email;
+  constructor(private profileData: ProfileDataService, db: AngularFireDatabase) {
+    if(profileData.getUID() != null){
+      this.user_name = profileData.getUser().displayName;
+      this.user_email = profileData.getUser().email;
     }
     else{
       this.user_name = "";
       this.user_email = "";
     }
+
+
   }
 
 }
