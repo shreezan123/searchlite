@@ -22,19 +22,21 @@ body{
 #loginimage{
   width: 80px;
   height: 80px;
+  
 }
 
+
 .footer {
-  background-color: #262aa3;
-  text-align:center;
-  color: white;
-  height: 80px;
-  word-spacing: 430pt;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
+  padding: 0.8rem;
+  background-color: #262aa3;
+  text-align:center;
+  color: white;
+  word-spacing: 430pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a{
@@ -44,4 +46,9 @@ a{
 
 #profile{
   width: 10%;
+}
+#tantrik{
+  width:50%;
+  height:50%;
+  position: relative;
 }
