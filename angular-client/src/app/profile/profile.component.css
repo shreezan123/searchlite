@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 md-card{
     position: absolute;
   width: 50%;
-=======
-h2, h4{
-    color: #ffffff;
-    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
-}
-
-#cards{
-  width: 100%;
->>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
   background-color: #ffffff;
   color: #262aa3;
   font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
@@ -21,7 +11,6 @@ h2, h4{
          -3px 3px #262aa3,
          -4px 4px #262aa3,
          -5px 5px #262aa3;
-<<<<<<< HEAD
 
 }
 
@@ -34,6 +23,3 @@ md-card-title{
     color: #262aa3;
 }
 
-=======
-}
->>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f

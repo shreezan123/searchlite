@@ -45,14 +45,6 @@ export class ResultsComponent {
       });
   
     });
-        }
-        this.result = JSON.stringify(data).substr(1, JSON.stringify(data).length-2).replace(/\"/g, " ").replace(/]/g, "").split(',');
-        this.result = this.result.map(s=>{return s.split('/')[1];});
-        this.result = this.result.map(s=>{return s.replace(/_/g, "/")});
-        for(var i = this.result.length/2; i < this.result.length; i++){
-          this.description.push(this.result[i]);
-        }
-      });
       
   }
 
@@ -74,13 +66,7 @@ export class ResultsComponent {
     this.temp = this.result.map(function (e, i) {
       return [e, description[i]];
     });
-    if(this.result == undefined){
-      this.result = [];
-      this.result.push("NO RESULTS FOUND")
-      
-    }
-    this.result = JSON.stringify(this.result).substr(1, JSON.stringify(this.result).length-2).replace(/\"/g, " ").split(',');
-    this.result = this.result.map(s=>{return s.split('/')[1];});
+
   }
 
 }

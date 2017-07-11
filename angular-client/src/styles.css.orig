@@ -1,0 +1,99 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* You can add global styles to this file, and also import other style files */
+html{
+  height: 100%;
+
+}
+
+body{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  /*background-image: url("assets/Images/material_bg.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+>>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
+  background-color: #02A8F3;
+  height: 100%;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+
+#login{
+  border-radius: 50%;
+  border-color: white;
+  background-color: #02A8F3;
+}
+
+#loginimage{
+  width: 80px;
+  height: 80px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+
+.footer {
+  background-color: #262aa3;
+  text-align:center;
+  color: white;
+  height: 80px;
+  word-spacing: 430pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+=======
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
+  
+}
+
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.8rem;
+  background-color: #262aa3;
+  text-align:center;
+  color: white;
+  word-spacing: 430pt;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+<<<<<<< HEAD
+=======
+>>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+<<<<<<< HEAD
+#profile{
+  width: 10%;
+}
+=======
+<<<<<<< HEAD
+#profile{
+  width: 10%;
+}
+=======
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
+#tantrik{
+  width:50%;
+  height:50%;
+  position: relative;
+}
+<<<<<<< HEAD
+=======
+>>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f

@@ -7,14 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-signin-client_id" content="33123577346-mrrkl3hg2n2st650vg6k91u1lgp96dlm.apps.googleusercontent.com">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
   <link rel="stylesheet" type="text/css" href="./styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+<<<<<<< HEAD
+=======
+=======
+  <link rel="stylesheet" type="text/css" href="styles.css">
+>>>>>>> 6d6731963340573a8ad020e505f8900bb6eed4bc
+>>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
 </head>
 <body>
+  <button id = "login" type="button">
+    <img src = "assets/Images/account_temp.png" id="loginimage"/>
+  </button>
   <app-root></app-root>
+  <!-- <img id = "search-image" src="search.png" alt="Image not present"></img>-->
+<div class="footer"><em>
+  <a href = "https://github.com/shreezan123/search_algorithm">APIs</a> <a href = "https://github.com/shreezan123/search_algorithm">GithubLink</a> <a href = "https://github.com/shreezan123/search_algorithm">OurTeam</a></em>
+</div>
 </body>
 </html>

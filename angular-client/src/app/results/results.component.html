@@ -1,8 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center center" id="top_half">
-  <form>, 
+  <form> 
     <div fxLayout="row" fxLayoutAlign="center center">
         <div fxLayout="row" fxLayoutAlign="center start" id="inputArea">
-        <div fxLayout="row" fxLayoutAlign="center center">
           <div>
             <md-input-container>
               <input mdInput
@@ -23,10 +22,6 @@
             <img src="../assets/Images/LogoResults_Bkd.gif">
           </div>
        
-          <!--<div id="resultLogo">
-            <img src="../assets/Images/LogoResults2.gif">
-          </div>-->
-        </div>
     </div>
   </form>
 </div>
@@ -38,15 +33,6 @@
       </md-card-header>
       <md-card-content>
         <p>{{item[1]}}</p>
-=======
-  <div *ngFor="let item of result | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
-    <md-card>
-      <md-card-header> 
-        <md-card-title><a href="">{{item}}</a></md-card-title>
-      </md-card-header>
-      <md-card-content>
-        <p>Description</p>
->>>>>>> e90534de7d5ea6c9183922c61bbbada0c04d5d7f
       </md-card-content>
     </md-card>
   </div>
