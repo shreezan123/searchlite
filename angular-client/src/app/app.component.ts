@@ -6,8 +6,9 @@ import * as firebase from 'firebase/app';
 import { MdSidenav } from '@angular/material';
 import { ProfileDataService } from './profile-data.service';
 
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -83,3 +84,4 @@ export class AppComponent {
   
 
 }
+

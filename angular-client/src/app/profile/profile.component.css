@@ -1,10 +1,6 @@
-h2, h4{
-    color: #ffffff;
-    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
-}
-
-#cards{
-  width: 100%;
+md-card{
+    position: absolute;
+  width: 50%;
   background-color: #ffffff;
   color: #262aa3;
   font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
@@ -15,4 +11,15 @@ h2, h4{
          -3px 3px #262aa3,
          -4px 4px #262aa3,
          -5px 5px #262aa3;
+
 }
+
+#profileLogo{
+    width: 20px;
+    margin-left: 10px;
+}
+
+md-card-title{
+    color: #262aa3;
+}
+

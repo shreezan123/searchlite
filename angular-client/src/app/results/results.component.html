@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center center" id="top_half">
   <form> 
     <div fxLayout="row" fxLayoutAlign="center center">
-        <div fxLayout="row" fxLayoutAlign="center center">
+        <div fxLayout="row" fxLayoutAlign="center start" id="inputArea">
           <div>
             <md-input-container>
               <input mdInput
@@ -17,21 +17,22 @@
               <md-icon>search</md-icon>
             </button>
           </div>
-          <!--<div id="resultLogo">
-            <img src="../assets/Images/LogoResults2.gif">
-          </div>-->
-        </div>
+          </div>
+          <div id="resultLogo">
+            <img src="../assets/Images/LogoResults_Bkd.gif">
+          </div>
+       
     </div>
   </form>
 </div>
 <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
-  <div *ngFor="let item of result | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
+  <div *ngFor="let item of temp | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
     <md-card>
       <md-card-header> 
-        <md-card-title><a href="">{{item}}</a></md-card-title>
+        <md-card-title><a href="http://{{item[0]}}" target="_blank">{{item[0]}}</a></md-card-title>
       </md-card-header>
       <md-card-content>
-        <p>Description</p>
+        <p>{{item[1]}}</p>
       </md-card-content>
     </md-card>
   </div>

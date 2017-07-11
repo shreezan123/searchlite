@@ -21,10 +21,6 @@ import { SearchService } from './search.service';
 import { ResultsService } from './results.service';
 import { environment } from '../environments/environment';
 
-
-
-
-
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'results', component: ResultsComponent},
@@ -61,6 +57,7 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
   ],
   providers: [SearchService, ResultsService, ProfileDataService],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
