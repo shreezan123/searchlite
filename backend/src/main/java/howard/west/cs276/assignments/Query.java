@@ -66,7 +66,7 @@ public class Query {
 	}
 
 
-	public static List<String> mainQuery(String input, String query) {
+	public static List<String> mainQuery(String input, String query){
 
 	    try {
 

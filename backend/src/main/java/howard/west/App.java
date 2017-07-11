@@ -41,15 +41,14 @@ public class App {
       response.header("Access-Control-Request-Method", methods);
       response.header("Access-Control-Allow-Headers", headers);
       // Note: this may or may not be necessary in your particular application
-      response.type("application/json");
-    });
+      response.type("application/json");    });
   }
 
   public static void main(String[] args) {
     // by default this is 4567 in order to prevent collisions with
     // other things that may be running on the machine.  We are running in a docker container
     // so that is not an issue
-  
+
     port(8080);
 
     enableCORS("http://frontend.howard.test:4200", "GET", "");
@@ -57,7 +56,7 @@ public class App {
     //GSON is used to map to json.
     Gson gson = new Gson();
 
-    //String indexPath = "output/tiny-index";
+    //String indexPath = "output/index";
     // TODO: Copy your full sized generated index to this path and uncomment this line:
     String indexPath = "output/index";
 
@@ -70,6 +69,7 @@ public class App {
       "/search",
       "application/json",
       (req, res) -> Query.mainQuery(indexPath, req.queryMap("q").value()),
+      //(req, res) -> ResultDTO.builder().term(req.queryMap("q").value()),
       gson::toJson); // <- this is called a method reference
   }
 }
