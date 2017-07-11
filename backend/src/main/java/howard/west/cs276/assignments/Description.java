@@ -35,7 +35,7 @@ public class Description{
                                         sp[i] +
                                         (i+1 < sp.length ? " "+sp[i+1] : "") +
                                         (i+2 < sp.length ? " "+sp[i+2] : "");
-                            return "0/" + surr;
+                            return "0/" + surr + "...";
                         }
                     }
                     

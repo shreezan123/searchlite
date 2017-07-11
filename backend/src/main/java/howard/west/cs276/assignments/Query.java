@@ -66,7 +66,7 @@ public class Query {
 	}
 
 
-	public static List<List<String>> mainQuery(String input, String query) {
+	public static List<String> mainQuery(String input, String query) {
 
 	    try {
 
@@ -150,11 +150,13 @@ public class Query {
 				 String description = d.getDescription(docDict.get(common.get(i)), query);
 				 descriptions.add(description);
 			 }
-			 
+			 for(String d: descriptions){
+				fileNames.add(d);
+			 }
 		indexFile.close();
-		x.add(fileNames);
-		x.add(descriptions);
-		return x;
+		//x.add(fileNames);
+		//x.add(descriptions);
+		return fileNames;
 		//return fileNames;
 		//return postingLists;
 
