@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import howard.west.cs276.assignments.Description;
 
-import javax.net.ssl.ExtendedSSLSession;
+//import javax.net.ssl.ExtendedSSLSession;
 
 public class Query {
 
@@ -27,6 +26,7 @@ public class Query {
 	private static Map<String, Integer> termDict = new TreeMap<String, Integer>();
 	// Index
 	private static BaseIndex index = null;
+	//Class to get file descriptions
 	private static Description d = new Description();
 	
 	/* 
@@ -57,17 +57,11 @@ public class Query {
 			else
 				j++;
 		}
-		/*for(int i = 0; i < first.size(); i++){
-			if(second.contains(first.get(i)) && !common.contains(first.get(i))){
-				common.add(first.get(i));
-			}
-		}*/
 		return common;
 	}
 
 
 	public static List<String> mainQuery(String input, String query){
-
 	    try {
 
 	        String[] queryTokens = query.split(" ");
@@ -117,15 +111,15 @@ public class Query {
 
 		    // Fetch all the posting lists from the index.
 		    List<PostingList> postingLists = new ArrayList<PostingList>();
-		    boolean noResults = false;
 		    for (String queryToken : queryTokens) {
-			// Get the term id for this token using the termDict map.
-			Integer termId = termDict.get(queryToken);
-			if (termId == null) {
-			    noResults = true;
-			    continue;
-			}
-			else postingLists.add(readPosting(indexChannel, termId));
+				// Get the term id for this token using the termDict map.
+				Integer termId = termDict.get(queryToken);
+				if (termId == null) {				
+					continue;
+				}
+				else {  
+					postingLists.add(readPosting(indexChannel, termId)); 
+				}
 		    }
 
 		    /*
@@ -135,8 +129,18 @@ public class Query {
 		     *       containing the query terms, one document file on each
 		     *       line, sorted in lexicographical order.
 		     */
-
+			 
+			 //Immediately end query if no results found
+			 if(postingLists.size() < 1){
+				List<String>temp = new ArrayList<String>();
+				temp.add("NO RESULTS FOUND");
+				temp.add("...");
+				indexFile.close();
+				return temp;
+			 }
 			 List<Integer>common = postingLists.get(0).getList();
+			 
+			 
 			 for(PostingList pl : postingLists){
 				 common = intersection(pl.getList(), common);
 			 }
@@ -147,18 +151,16 @@ public class Query {
 
 			 for(int i = 0; i < common.size(); i++){
 				 fileNames.add(docDict.get(common.get(i)));
-				 String description = d.getDescription(docDict.get(common.get(i)), query);
+				//Get the description for each file found
+				 String description = d.getDescription(docDict.get(common.get(i)), query); 
 				 descriptions.add(description);
 			 }
+			//Append descriptions to end of list to return
 			 for(String d: descriptions){
 				fileNames.add(d);
 			 }
 		indexFile.close();
-		//x.add(fileNames);
-		//x.add(descriptions);
 		return fileNames;
-		//return fileNames;
-		//return postingLists;
 
 		} catch (Exception e) { System.out.println("ERROR " + e); }
 
