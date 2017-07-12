@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     ResultsComponent,
     SearchComponent,
     SignUpComponent,
-    ProfileComponent,
+    ProfileComponent  
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     MdTabsModule,
     MdSidenavModule,
     NgxPaginationModule,
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
   ],
   providers: [SearchService, ResultsService, ProfileDataService],
 

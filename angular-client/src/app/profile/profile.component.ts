@@ -14,7 +14,6 @@ export class ProfileComponent {
   user_name: string;
   user_email: string;
   user_id: string;
-  query: FirebaseListObservable<any>;
   x: any = [];
   p: number = 1;
 
@@ -28,7 +27,6 @@ export class ProfileComponent {
       this.user_name = "";
       this.user_email = "";
     }
-    //this.query = db.list('/users/' + this.user_id + "/history");
   db.list('/users/' + this.user_id + "/history", { preserveSnapshot: true})
     .subscribe(snapshots => {
       snapshots.forEach(snapshot =>{
