@@ -28,12 +28,10 @@ export class AppComponent {
     afAuth.auth.onAuthStateChanged(function(user) { //Check if the user is already logged in
       if(user){
         (<HTMLImageElement>document.getElementById('loginimage')).src = afAuth.auth.currentUser.photoURL;
-        profileData.setUser(afAuth.auth.currentUser);
-        
+        profileData.setUser(user);
       }
       else{
         (<HTMLImageElement>document.getElementById('loginimage')).src = "assets/Images/account_temp.png";
-        profileData.setUser(null);
       }
     });
   }
@@ -44,23 +42,18 @@ export class AppComponent {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     if(this.afAuth.auth.currentUser != null){
       (<HTMLImageElement>document.getElementById('loginimage')).src = this.afAuth.auth.currentUser.photoURL;
-      this.profileData.setUser(this.afAuth.auth.currentUser);
     }
-    else{
-      this.profileData.setUser(null);
-    }
+    this.profileData.setUser(this.afAuth.auth.currentUser);
     this.sidenav.close();
   }
 
   flogin() {
-    this.user = this.afAuth.authState;
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     if(this.afAuth.auth.currentUser != null){
       (<HTMLImageElement>document.getElementById('loginimage')).src = this.afAuth.auth.currentUser.photoURL;
-      this.profileData.setUser(this.afAuth.auth.currentUser);
     }
+    this.profileData.setUser(this.afAuth.auth.currentUser);
     this.sidenav.close();
-    
   }
 
   profile(){
@@ -72,7 +65,6 @@ export class AppComponent {
     else{
       this.sidenav.open();
     }
-    
   }
 
   logout(){

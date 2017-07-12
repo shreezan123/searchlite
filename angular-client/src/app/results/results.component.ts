@@ -3,6 +3,7 @@ import { SearchService } from '../search.service';
 import { ResultsService } from '../results.service';
 import { ProfileDataService } from '../profile-data.service';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Router } from '@angular/router';
  import * as firebase from 'firebase';
 
 @Component({
@@ -21,7 +22,7 @@ export class ResultsComponent {
   
 
   constructor(private searchService: SearchService, private resultsService: ResultsService, 
-              private profileData: ProfileDataService, db: AngularFireDatabase) {
+              private profileData: ProfileDataService, db: AngularFireDatabase, private route: Router) {
     this.history_db = db.database;
     this.result = this.resultsService.getResult();
     this.firstSearch();
@@ -107,5 +108,9 @@ export class ResultsComponent {
       return [e, description[i]];
     });
   }
+
+ goHome(){
+   this.route.navigate(['/']);
+ }
 
 }

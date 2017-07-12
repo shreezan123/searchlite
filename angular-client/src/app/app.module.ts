@@ -14,18 +14,18 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { ResultsComponent } from './results/results.component';
 import { SearchComponent } from './search/search.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileDataService } from './profile-data.service';
 import { SearchService } from './search.service';
 import { ResultsService } from './results.service';
 import { environment } from '../environments/environment';
+import { TeamComponent } from './team/team.component';
 
 const appRoutes: Routes = [
   {path: '', component: SearchComponent},
   {path: 'results', component: ResultsComponent},
-  {path: 'sign_up', component: SignUpComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'team', component: TeamComponent},
   {path: '**', redirectTo: ''},
 ];
 
@@ -35,8 +35,8 @@ const appRoutes: Routes = [
     AppComponent,
     ResultsComponent,
     SearchComponent,
-    SignUpComponent,
-    ProfileComponent  
+    ProfileComponent,
+    TeamComponent  
   ],
   imports: [
     BrowserModule,

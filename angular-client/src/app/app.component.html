@@ -24,17 +24,17 @@
   <div>
     <div fxLayout="row" fxLayoutAlign="space-around center" class="footer">
       
-      <div *ngIf="!afAuth.auth.currentUser">
-        <a href = "https://github.com/shreezan123/search_algorithm">APIs</a> 
+     <div *ngIf="!afAuth.auth.currentUser">
+        <button type="button" md-button (click)="sidenav.open()" class="logout">LogIn</button> 
       </div>
        <div *ngIf="afAuth.auth.currentUser">
-        <button type="button" md-button (click)="logout()" id="logout">LogOut</button> 
+        <button type="button" md-button (click)="logout()" class="logout">LogOut</button> 
       </div>
       <div>
         <a href = "https://github.com/shreezan123/search_algorithm">GithubLink</a> 
       </div>
       <div>
-        <a href = "https://github.com/shreezan123/search_algorithm">OurTeam</a>
+        <button type="button" md-button class="logout" routerLink="/team" routerLinkActive="active">OurTeam</button>
       </div>
     </div>
   </div>

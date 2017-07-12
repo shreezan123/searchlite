@@ -1,6 +1,23 @@
-md-card{
-    position: absolute;
-  width: 50%;
+#searchB{
+  background-color: #262aa3;
+  border: 1px solid #262aa3;
+  margin-top: 21px;
+
+}
+
+
+input {
+  border: 2px solid #262aa3;
+  color: white;
+  font-size: 25px;
+}
+
+#inputArea{
+  position: absolute;
+}
+
+.cards{
+  width: 100%;
   background-color: #ffffff;
   color: #262aa3;
   font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
@@ -11,20 +28,15 @@ md-card{
          -3px 3px #262aa3,
          -4px 4px #262aa3,
          -5px 5px #262aa3;
-
 }
 
-#profileLogo{
-    width: 20px;
-    margin-left: 10px;
+a{
+  color: #262aa3;
 }
 
-md-card-title{
-    color: #262aa3;
-}
-
-pagination-controls{
-    margin-right: 62px;
+#teamPic{
+    width: 100px;
+    height: 100px;
 }
 
 #clickLogo{
@@ -32,8 +44,9 @@ pagination-controls{
     padding: 0px;
 }
 
-p{
-    font-family: Roboto, Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: bold;
-}
+
+
+
+
+
+
