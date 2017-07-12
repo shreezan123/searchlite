@@ -10,9 +10,9 @@ export class TeamComponent {
 
   constructor(private route: Router) { }
 
-goHome(){
-  this.route.navigate(['/']);
-}
+  //Routes back to the search component
+  goHome(){
+    this.route.navigate(['/']);
+  }
   
-
 }

@@ -18,9 +18,9 @@
             </button>
           </div>
           </div>
-          <div id="resultLogo">
-            <button id="clickLogo" ng-flat-button (click)="goHome()"><img src="../assets/Images/LogoResults_Bkd.gif"></button>
-          </div>
+        <div id="resultLogo">
+          <button id="clickLogo" ng-flat-button (click)="goHome()"><img src="../assets/Images/LogoResults_Bkd.gif"></button>
+        </div>
        
     </div>
   </form>
@@ -29,7 +29,9 @@
   <div *ngFor="let item of temp | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
     <md-card>
       <md-card-header> 
-        <md-card-title><a href="http://{{item[0]}}" target="_blank">{{item[0]}}</a></md-card-title>
+        <md-card-title>
+          <a href="http://{{item[0]}}" target="_blank">{{item[0]}}</a>
+        </md-card-title>
       </md-card-header>
       <md-card-content>
         <p>{{item[1]}}</p>

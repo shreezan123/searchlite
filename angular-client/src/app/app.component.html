@@ -23,7 +23,8 @@
   <div fxFlexOffset="-80px"><router-outlet></router-outlet></div>
   <div>
     <div fxLayout="row" fxLayoutAlign="space-around center" class="footer">
-      
+    
+      <!--Check if the user is logged in to display the appropriate button -->
      <div *ngIf="!afAuth.auth.currentUser">
         <button type="button" md-button (click)="sidenav.open()" class="logout">LogIn</button> 
       </div>

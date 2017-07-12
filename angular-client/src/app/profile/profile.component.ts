@@ -12,33 +12,32 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class ProfileComponent {
 
-  user: any;
   user_name: string;
-  user_email: string;
   user_id: string;
-  x: any = [];
+  history: any = [];
   p: number = 1;
 
   constructor(private profileData: ProfileDataService, db: AngularFireDatabase, private route: Router) {
-    console.log()
+    //Check if the user is logged in to display their name
     this.user_id = profileData.getUID();
     if(this.user_id != null){
       this.user_name = profileData.getUser().displayName;
-      this.user_email = profileData.getUID().email;
     }
     else{
       this.user_name = "";
-      this.user_email = "";
     }
+
+  //Get the user's history form the database
   db.list('/users/' + this.user_id + "/history", { preserveSnapshot: true})
     .subscribe(snapshots => {
       snapshots.forEach(snapshot =>{
-        this.x.push([snapshot.key, snapshot.val()]);
+        this.history.push([snapshot.key, snapshot.val()]);
       });
     });
        
   }
 
+  //Routes back to the search component
   goHome(){
     this.route.navigate(["/"]);
   }

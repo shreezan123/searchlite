@@ -29,9 +29,7 @@ export class ResultsComponent {
   }
 
   search() {
-    this.result = [];
-    this.description = [];
-    this.temp = [];
+    //If the user is logged in, send search term to the firebase database with timestamp (month/year)
     if(this.profileData.getUID() != null && this.term != ""){
       var uid = this.profileData.getUID();
       var var_term = this.term;
@@ -55,6 +53,12 @@ export class ResultsComponent {
     
     this.searchService.search(this.term.toLowerCase())
       .subscribe(data => {
+        //Reset the previous data
+        this.result = [];
+        this.description = [];
+        this.temp = [];
+
+        //Check for any empty/undefined data due to server error or no results found
         if(data == null || data == undefined){
           return;
         }
@@ -66,25 +70,33 @@ export class ResultsComponent {
           this.temp.push([JSON.stringify(data[0]).replace(/\"/g, ""), JSON.stringify(data[1]).replace(/\"/g, "")])
           return;
         }
+
+        //Parse the data by removing "", [], and #/
         this.result = JSON.stringify(data).substr(1, JSON.stringify(data).length-2).replace(/\"/g, " ").replace(/]/g, "").split(',');
         this.result = this.result.map(s=>{return s.split('/')[1];});
         
+        //Separate the descriptions from the links
         for(var i = this.result.length/2; i < this.result.length; i++){
           this.description.push(this.result[i]);
         }
 
-      this.result.splice(this.result.length/2, this.description.length);
-      this.result = this.result.map(s=>{return s.replace(/_/g, "/")});
-      var description = this.description;
-      this.temp = this.result.map(function (e, i) {
-        return [e, description[i]];
-      });
+        //Remove the descriptions from the results array
+        this.result.splice(this.result.length/2, this.description.length);
+        this.result = this.result.map(s=>{return s.replace(/_/g, "/")});
+        var description = this.description;
+
+        //Create 1:1 tuples of links to descriptions to be displayed
+        this.temp = this.result.map(function (e, i) {
+          return [e, description[i]];
+        });
   
     });
       
   }
 
+  //Called when search comes from the search component
   firstSearch(){
+    //Check for null or undefined data from server error or no results
     if(this.result == undefined || this.result == null){
       return;
     }
@@ -96,19 +108,28 @@ export class ResultsComponent {
       this.temp.push([JSON.stringify(this.result[0]).replace(/\"/g, ""), JSON.stringify(this.result[1]).replace(/\"/g, "")])
       return;
     }
+
+    //Parse the data by removing "", [], and #/
     this.result = JSON.stringify(this.result).substr(1, JSON.stringify(this.result).length-2).replace(/\"/g, " ").replace(/]/g, "").split(',');
     this.result = this.result.map(s=>{return s.split('/')[1];});
+
+    //Separate the descriptions from the links
     for(var i = (this.result.length/2); i < this.result.length; i++){
       this.description.push(this.result[i]);
     }
+
+    //Remove the descriptions from the results array
     this.result.splice(this.result.length/2, this.description.length);
     this.result = this.result.map(s=>{return s.replace(/_/g, "/")});
     var description = this.description;
+
+    //Create 1:1 tuples of links to descriptions to be displayed
     this.temp = this.result.map(function (e, i) {
       return [e, description[i]];
     });
   }
 
+ //Routes back to the seach component
  goHome(){
    this.route.navigate(['/']);
  }

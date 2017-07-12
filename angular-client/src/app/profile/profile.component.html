@@ -1,23 +1,28 @@
- <div fxLayout="column" fxLayoutAlign="start center">
-<div id="profileLogo" fxFlexOffset="920px">
-  <button id="clickLogo" ng-flat-button (click)="goHome()"><img src="../assets/Images/LogoProfile_Bkd.gif"></button>
-</div>
+<div fxLayout="column" fxLayoutAlign="start center">
+  
+  <!-- Allows the user to go back to homepage -->
+  <div id="profileLogo" fxFlexOffset="920px">
+    <button id="clickLogo" ng-flat-button (click)="goHome()">
+      <img src="../assets/Images/LogoProfile_Bkd.gif">
+    </button>
+  </div>
+
+  <!-- Displays the user's search history in alphabetical order (ascii value) -->
   <md-card id="cards">
     <div fxLayout="row" fxLayoutAlign="center center">
       <md-card-header>
         <md-card-title><h2>Welcome {{user_name}}</h2></md-card-title>
       </md-card-header>
     </div>
-     <h3 style="font-size: 25px">History</h3>
-    <md-card-content *ngFor="let i of x | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
+    <h3 style="font-size: 25px">History</h3>
+    <md-card-content *ngFor="let item of history | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
       <hr style="color: #262aa3;"/>
       <div fxLayout="column" fxLayoutAlign="center center">
-      <br /><p>{{i[0]}}</p>
+        <br /><p>{{item[0]}}</p>
        </div>
     </md-card-content>
-      <div fxLayout="row" fxLayoutAlign="center center">
-    <pagination-controls (pageChange)="p = $event" id="title" autoHide="true" maxSize="5" previousLabel="Previous" nextLabel="Next"></pagination-controls>
-      </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+     <pagination-controls (pageChange)="p = $event" id="title" autoHide="true" maxSize="5" previousLabel="Previous" nextLabel="Next"></pagination-controls>
+    </div>
   </md-card>
- 
  </div>

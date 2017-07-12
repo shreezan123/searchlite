@@ -25,7 +25,9 @@ export class AppComponent {
 
   constructor(public afAuth: AngularFireAuth, private route: Router, private profileData: ProfileDataService,db: AngularFireDatabase) {
     this.history_db = db.list('/users');
-    afAuth.auth.onAuthStateChanged(function(user) { //Check if the user is already logged in
+
+    //Check if the user is logged in
+    afAuth.auth.onAuthStateChanged(function(user) {
       if(user){
         (<HTMLImageElement>document.getElementById('loginimage')).src = afAuth.auth.currentUser.photoURL;
         profileData.setUser(user);
@@ -36,7 +38,7 @@ export class AppComponent {
     });
   }
 
-
+  //Login with Google Auth
   glogin() {
     this.user = this.afAuth.authState;
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -47,6 +49,7 @@ export class AppComponent {
     this.sidenav.close();
   }
 
+  //Login with Facebook Auth
   flogin() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     if(this.afAuth.auth.currentUser != null){
@@ -56,6 +59,7 @@ export class AppComponent {
     this.sidenav.close();
   }
 
+  //Opens the sidenav for login
   profile(){
     if(this.afAuth.auth.currentUser != null){
       this.sidenav.close();
@@ -67,6 +71,7 @@ export class AppComponent {
     }
   }
 
+  //Logs the user out
   logout(){
     this.afAuth.auth.signOut().then(function() {
       this.profileData.setUser(null);
