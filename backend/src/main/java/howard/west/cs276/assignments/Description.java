@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 public class Description{
     public String getDescription(String fileName, String term) throws FileNotFoundException{
         List <String> terms = new ArrayList<String>();
+        String description = "";
         //Account for multiworded queries
         for(String s: term.split(" +")){
             terms.add(s);
@@ -23,7 +24,8 @@ public class Description{
             if(terms.parallelStream().anyMatch(lineFromFile::contains)){
                 // a match!
                 String[] sp = lineFromFile.split(" +"); // "+" for multiple spaces
-                for (int i = 2; i < sp.length; i++) {
+            
+                for (int i = 0; i < sp.length; i++) {
                     //Account for multi-worded queries
                     for(String s: terms){ 
                         if (sp[i].equals(s)) {
@@ -37,6 +39,7 @@ public class Description{
                         }
                     }
                 }
+                    
             
             } 
         }

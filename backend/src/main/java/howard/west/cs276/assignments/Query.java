@@ -43,20 +43,6 @@ public class Query {
 	//Intersection of 2 lists
 	private static List<Integer> intersection(List<Integer> first, List<Integer> second){
 		List<Integer> common = new ArrayList<Integer>();
-		//int i = 0;
-		//int j = 0;
-		/*while(i < first.size() && j < second.size()){
-			if(first.get(i) == second.get(j)){
-				common.add(first.get(i));
-				i++;
-				j++;
-			}
-			else if(first.get(i) < second.get(j)){
-				i++;
-			}
-			else
-				j++;
-		}*/
 		for(int i = 0; i<first.size(); i++){
  			if(second.contains(first.get(i))){
 				 common.add(first.get(i));
