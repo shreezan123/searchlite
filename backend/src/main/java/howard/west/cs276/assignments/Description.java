@@ -13,7 +13,6 @@ public class Description{
         //Account for multiworded queries
         for(String s: term.split(" +")){
             terms.add(s);
-            System.out.println("FIRST: " + s);
         }
         Arrays.asList(term.split(" +"));
         File file = new File("data/" + fileName);
@@ -27,7 +26,6 @@ public class Description{
                 for (int i = 2; i < sp.length; i++) {
                     //Account for multi-worded queries
                     for(String s: terms){ 
-                        System.out.println("SECOND " + s);
                         if (sp[i].equals(s)) {
                             // have to check for ArrayIndexOutOfBoundsException
                             String surr = (i-2 > 0 ? sp[i-2]+" " : "") +

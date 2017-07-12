@@ -147,7 +147,6 @@ public class Query {
 
 			 List<String>fileNames = new ArrayList<String>();
 			 List<String>descriptions = new ArrayList<String>();
-			 List<List<String>>x = new ArrayList<List<String>>();
 
 			 for(int i = 0; i < common.size(); i++){
 				 fileNames.add(docDict.get(common.get(i)));
