@@ -13,9 +13,14 @@ export class ProfileComponent {
   user: any;
   user_name: string;
   user_email: string;
+  user_id: string;
+  query: FirebaseListObservable<any>;
+  x: any = [];
+  p: number = 1;
 
   constructor(private profileData: ProfileDataService, db: AngularFireDatabase) {
-    if(profileData.getUID() != null){
+    this.user_id = profileData.getUID();
+    if(this.user_id != null){
       this.user_name = profileData.getUser().displayName;
       this.user_email = profileData.getUser().email;
     }
@@ -23,8 +28,15 @@ export class ProfileComponent {
       this.user_name = "";
       this.user_email = "";
     }
-
-
+    //this.query = db.list('/users/' + this.user_id + "/history");
+  db.list('/users/' + this.user_id + "/history", { preserveSnapshot: true})
+    .subscribe(snapshots => {
+      snapshots.forEach(snapshot =>{
+        this.x.push([snapshot.key, snapshot.val()]);
+      });
+    });
+       
   }
 
 }
+

@@ -87,6 +87,10 @@ export class ResultsComponent {
     if(this.result == undefined || this.result == null){
       return;
     }
+    else if(this.result[0] == undefined){
+        this.temp.push(["NO RESULTS FOUND", "..."]);
+        return;
+     }
     else if(JSON.stringify(this.result[0]).replace(/\"/g, "") == "NO RESULTS FOUND"){
       this.temp.push([JSON.stringify(this.result[0]).replace(/\"/g, ""), JSON.stringify(this.result[1]).replace(/\"/g, "")])
       return;

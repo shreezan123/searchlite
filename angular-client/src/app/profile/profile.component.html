@@ -9,9 +9,10 @@
       </md-card-header>
     </div>
      <h3>History</h3>
-    <md-card-content>
+    <md-card-content *ngFor="let i of x | paginate: { itemsPerPage: 5, currentPage: p, id: 'title' };" id="cards">
       <hr style="color: #262aa3;"/>
-      <br /><p> Description </p>
+      <br /><p>{{i[0]}}</p>
     </md-card-content>
+    <pagination-controls (pageChange)="p = $event" id="title" autoHide="true" maxSize="5" previousLabel="Previous" nextLabel="Next"></pagination-controls>
   </md-card>
  </div>
